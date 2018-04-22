@@ -1,5 +1,5 @@
 # Support Vector Machine (SVM)
-setwd("G:/github_portfolio/SVM")
+setwd("G:/Data-Science-Portfolio/SVM")
 # Importing the dataset
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]

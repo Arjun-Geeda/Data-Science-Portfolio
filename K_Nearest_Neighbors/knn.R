@@ -1,5 +1,5 @@
 # K-Nearest Neighbors (K-NN)
-setwd("G:/github_portfolio/K_Nearest_Neighbors")
+setwd("G:/Data-Science-Portfolio/K_Nearest_Neighbors")
 # Importing the dataset
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]

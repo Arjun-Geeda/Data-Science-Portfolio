@@ -1,5 +1,5 @@
 # Random Forest Classification
-setwd("G:/github_portfolio/Random_Forest_Classification")
+setwd("G:/Data-Science-Portfolio/Random_Forest_Classification")
 # Importing the dataset
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]

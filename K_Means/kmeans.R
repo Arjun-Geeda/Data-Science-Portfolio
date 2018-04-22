@@ -1,5 +1,5 @@
 # K-Means Clustering
-setwd("G:/github_portfolio/K_Means")
+setwd("G:/Data-Science-Portfolio/K_Means")
 # Importing the dataset
 dataset = read.csv('Mall_Customers.csv')
 dataset = dataset[4:5]

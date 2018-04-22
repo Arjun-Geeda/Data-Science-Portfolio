@@ -1,5 +1,5 @@
 # Naive Bayes
-setwd("G:/github_portfolio/Naive_Bayes")
+setwd("G:/Data-Science-Portfolio/Naive_Bayes")
 # Importing the dataset
 dataset = read.csv('Social_Network_Ads.csv')
 dataset = dataset[3:5]
