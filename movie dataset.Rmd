@@ -1,0 +1,67 @@
+```{r}
+setwd("G:/Data-Science-Portfolio/Movie Dataset")
+mov<-read.csv("movie_metadata.csv")
+mov<-na.omit(mov)
+mov$movie_title<-sub("A","",mov$movie_title)
+#view(mov)
+colnames(mov)
+```
+
+choosing the number of clusters
+```{r}
+set.seed(123)
+facebook<-mov[,c(5,6,8,14)]
+#compute and plot wss for k=2 to K=15
+k.max<-15#maximum number of clusters
+wss<- sapply(1:k.max,function(k){kmeans(facebook,k,nstart=10)$tot.withinss})
+plot(1:k.max,wss,type="b",pch=19,frame = FALSE,xlab="Number of Clusters K",
+     ylab="Total within cluster sum of squareees")
+abline(v = 3, lty = 3)
+```
+
+group the movies into clusters based on the facebook likes
+
+
+```{r}
+facebook<-mov[,c(5,6,8,14)]
+#view(facebook)
+km<-kmeans(facebook,3)#apply  k-means clustering
+clust<-km$cluster
+mov<-cbind(mov,clust)
+mov1<-mov[,c("movie_title","clust")]
+#view(mov1)
+
+grpmov<-mov1[order(mov1$clust),]
+#view(grpmov)
+
+```
+choosing the number of clusters
+```{r}
+set.seed(123)
+director<-cbind(mov$gross/100000,mov$budget/100000)
+#compute and plot wss for k=2 to K=15
+k.max<-15#maximum number of clusters
+wss<- sapply(1:k.max,function(k){kmeans(director,k,nstart=10)$tot.withinss})
+plot(1:k.max,wss,type="b",pch=19,frame = FALSE,xlab="Number of Clusters K",
+     ylab="Total within cluster sum of squareees")
+abline(v = 3, lty = 3)
+```
+group the directors based on movie collection and budget
+```{r}
+setwd("G:/Data-Science-Portfolio/Movie Dataset")
+mov<-read.csv("movie_metadata.csv")
+mov<-na.omit(mov)
+mov$movie_title<-sub("A","",mov$movie_title)
+#view(mov)
+director<-cbind(mov$gross/100000,mov$budget/100000)
+director<-director[1:3801]
+#view(director)
+km<-kmeans(director,3)#apply  k-means clustering
+clust1<-km$cluster
+mov<-cbind(mov,clust1)
+mov2<-mov[,c("director_name","clust1")]
+#view(newdir)
+```
+
+
+
